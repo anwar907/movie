@@ -1,30 +1,57 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:movie/main.dart';
+import 'package:http/http.dart' as http;
+import 'package:movie/utils/const.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  group('Response API', () {
+    test('response from now playing', () async {
+      var response = await http.get(Uri.parse(Const.baseUrl + Const.nowPlaying),
+          headers: {
+            'accept': 'application/json',
+            'Authorization': Const.token
+          });
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+      var result = jsonDecode(response.body);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+      print(result);
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    test('response from popular', () async {
+      var response = await http.get(Uri.parse(Const.baseUrl + Const.popular),
+          headers: {
+            'accept': 'application/json',
+            'Authorization': Const.token
+          });
+
+      var result = jsonDecode(response.body);
+
+      print(result);
+    });
+
+    test('response from top rated', () async {
+      var response = await http.get(Uri.parse(Const.baseUrl + Const.topRated),
+          headers: {
+            'accept': 'application/json',
+            'Authorization': Const.token
+          });
+
+      var result = jsonDecode(response.body);
+
+      print(result);
+    });
+
+    test('response from upcoming', () async {
+      var response = await http.get(Uri.parse(Const.baseUrl + Const.upcoming),
+          headers: {
+            'accept': 'application/json',
+            'Authorization': Const.token
+          });
+
+      var result = jsonDecode(response.body);
+
+      print(result);
+    });
   });
 }
