@@ -41,29 +41,38 @@ class _TopRatedWidgetState extends State<TopRatedWidget> {
                           Expanded(
                             flex: 3,
                             child: Container(
-                                width: MediaQuery.of(context).size.height / 5,
-                                height: MediaQuery.of(context).size.height / 5,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(8.0),
-                                    image: DecorationImage(
-                                        fit: BoxFit.cover,
-                                        image: NetworkImage(Const.imageMovie +
-                                            dataMovies[index].backdropPath!))),
-                                child: Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Text.rich(
-                                    softWrap: true,
-                                    TextSpan(
-                                      text: dataMovies[index].title,
-                                      onEnter: (event) {},
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .bodyLarge
-                                          ?.copyWith(color: Colors.white),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                )),
+                              width: MediaQuery.of(context).size.height / 5,
+                              height: MediaQuery.of(context).size.height / 5,
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(8.0),
+                                  image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(Const.imageMovie +
+                                          dataMovies[index].backdropPath!))),
+                              child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        dataMovies[index]
+                                            .voteAverage
+                                            .toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium
+                                            ?.copyWith(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                      ),
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      )
+                                    ],
+                                  )),
+                            ),
                           ),
                         ],
                       ),

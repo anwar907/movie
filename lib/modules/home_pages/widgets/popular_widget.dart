@@ -49,6 +49,29 @@ class _PopularWidgetState extends State<PopularWidget> {
                                       fit: BoxFit.cover,
                                       image: NetworkImage(Const.imageMovie +
                                           dataMovies[index].backdropPath!))),
+                              child: Align(
+                                  alignment: Alignment.topRight,
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        dataMovies[index]
+                                            .voteAverage
+                                            .toString(),
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .titleMedium
+                                            ?.copyWith(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white),
+                                      ),
+                                      const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      )
+                                    ],
+                                  )),
                             ),
                           ),
                           Expanded(
@@ -58,7 +81,10 @@ class _PopularWidgetState extends State<PopularWidget> {
                                 TextSpan(
                                   text: dataMovies[index].title,
                                   onEnter: (event) {},
-                                  style: Theme.of(context).textTheme.bodySmall,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall
+                                      ?.copyWith(color: Colors.white),
                                 ),
                                 overflow: TextOverflow.ellipsis,
                               ))

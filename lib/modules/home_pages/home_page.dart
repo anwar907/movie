@@ -11,26 +11,18 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        backgroundColor: Colors.black,
         appBar: AppBar(
           leadingWidth: 100,
-          leading: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text(
-                'Now Playing',
-                style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                    fontWeight: FontWeight.bold, color: Colors.amber),
-              ),
-            ),
+          backgroundColor: Colors.amber,
+          title: Text(
+            'Movies & TV Shows',
+            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                  fontWeight: FontWeight.bold,
+                ),
           ),
           actions: [
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: InkWell(
-                onTap: () {},
-                child: const Icon(Icons.favorite),
-              ),
-            )
+            IconButton(onPressed: () {}, icon: const Icon(Icons.favorite))
           ],
         ),
         body: SingleChildScrollView(
@@ -42,26 +34,20 @@ class HomePage extends StatelessWidget {
                 const NowPlayingWidget(),
                 Text(
                   'Popular Movie',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 const PopularWidget(),
                 Text(
                   'Top Rated Movie',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 const TopRatedWidget(),
                 Text(
                   'Upcoming Movie',
-                  style: Theme.of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(fontWeight: FontWeight.bold),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                      fontWeight: FontWeight.bold, color: Colors.white),
                 ),
                 const UpcomingWidget(),
               ],

@@ -42,12 +42,28 @@ class _UpcomingWidgetState extends State<UpcomingWidget> {
                     child: Container(
                       width: MediaQuery.of(context).size.height / 5,
                       height: MediaQuery.of(context).size.height / 5,
+                      padding: const EdgeInsets.all(8.0),
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8.0),
                           image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(Const.imageMovie +
                                   movie[index].backdropPath!))),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text.rich(
+                          softWrap: true,
+                          TextSpan(
+                            text: movie[index].title,
+                            onEnter: (event) {},
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge
+                                ?.copyWith(color: Colors.white),
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                     ),
                   );
                 });
