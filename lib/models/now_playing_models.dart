@@ -1,9 +1,9 @@
 class NowPlayingModels {
   Dates? dates;
-  int? page;
+  num? page;
   List<Result>? results;
-  int? totalPages;
-  int? totalResults;
+  num? totalPages;
+  num? totalResults;
 
   NowPlayingModels({
     this.dates,
@@ -13,14 +13,16 @@ class NowPlayingModels {
     this.totalResults,
   });
 
-  factory NowPlayingModels.fromJson(Map<String, dynamic> json) => NowPlayingModels(
-      dates: json['dates'] != null ? Dates.fromJson(json['dates']) : null,
-      page: json['page'],
-      results: json['results'] != null
-          ? List<Result>.from(json['results'].map((e) => Result.fromJson(e)))
-          : null,
-      totalPages: json['total_pages'],
-      totalResults: json['total_results']);
+  factory NowPlayingModels.fromJson(Map<String, dynamic> json) =>
+      NowPlayingModels(
+          dates: json['dates'] != null ? Dates.fromJson(json['dates']) : null,
+          page: json['page'],
+          results: json['results'] != null
+              ? List<Result>.from(
+                  json['results'].map((e) => Result.fromJson(e)))
+              : null,
+          totalPages: json['total_pages'],
+          totalResults: json['total_results']);
 
   Map<String, dynamic> toJson() => {
         'dates': dates?.toJson(),
@@ -32,8 +34,8 @@ class NowPlayingModels {
 }
 
 class Dates {
-  DateTime? maximum;
-  DateTime? minimum;
+  String? maximum;
+  String? minimum;
 
   Dates({
     this.maximum,
@@ -49,18 +51,18 @@ class Dates {
 class Result {
   bool? adult;
   String? backdropPath;
-  List<int>? genreIds;
-  int? id;
+  List<num>? genreIds;
+  num? id;
   String? originalLanguage;
   String? originalTitle;
   String? overview;
-  double? popularity;
+  num? popularity;
   String? posterPath;
-  DateTime? releaseDate;
+  String? releaseDate;
   String? title;
   bool? video;
-  double? voteAverage;
-  int? voteCount;
+  num? voteAverage;
+  num? voteCount;
 
   Result({
     this.adult,
@@ -83,7 +85,7 @@ class Result {
       adult: json['adult'],
       backdropPath: json['backdrop_path'],
       genreIds:
-          json['genre_ids'] != null ? List<int>.from(json['genre_ids']) : null,
+          json['genre_ids'] != null ? List<num>.from(json['genre_ids']) : null,
       id: json['id'],
       originalLanguage: json['original_language'],
       originalTitle: json['original_title'],

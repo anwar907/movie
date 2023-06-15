@@ -16,9 +16,11 @@ class MovieProvider {
         'Authorization': Const.token
       });
 
-      final result = jsonDecode(response.body);
-
-      return NowPlayingModels.fromJson(result);
+      if (response.statusCode == 200) {
+        return NowPlayingModels.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load data');
+      }
     } catch (e) {
       return Future.error(e);
     }
@@ -31,9 +33,12 @@ class MovieProvider {
             'accept': 'application/json',
             'Authorization': Const.token
           });
-      final result = jsonDecode(response.body);
 
-      return PopularModels.fromJson(result);
+      if (response.statusCode == 200) {
+        return PopularModels.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load data');
+      }
     } catch (e) {
       return Future.error(e);
     }
@@ -46,9 +51,11 @@ class MovieProvider {
             'accept': 'application/json',
             'Authorization': Const.token
           });
-      final result = jsonDecode(response.body);
-
-      return TopRatedModels.fromJson(result);
+      if (response.statusCode == 200) {
+        return TopRatedModels.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load data');
+      }
     } catch (e) {
       return Future.error(e);
     }
@@ -62,9 +69,11 @@ class MovieProvider {
             'Authorization': Const.token
           });
 
-      final result = jsonDecode(response.body);
-
-      return UpcomingModels.fromJson(result);
+      if (response.statusCode == 200) {
+        return UpcomingModels.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception('Failed to load data');
+      }
     } catch (e) {
       return Future.error(e);
     }
