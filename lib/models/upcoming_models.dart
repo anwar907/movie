@@ -32,8 +32,8 @@ class UpcomingModels {
 }
 
 class Dates {
-  DateTime? maximum;
-  DateTime? minimum;
+  String? maximum;
+  String? minimum;
 
   Dates({
     this.maximum,
@@ -54,12 +54,12 @@ class Result {
   String? originalLanguage;
   String? originalTitle;
   String? overview;
-  double? popularity;
+  num? popularity;
   String? posterPath;
-  DateTime? releaseDate;
+  String? releaseDate;
   String? title;
   bool? video;
-  double? voteAverage;
+  num? voteAverage;
   int? voteCount;
 
   Result({
