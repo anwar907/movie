@@ -27,7 +27,8 @@ class _NowPlayingWidgetState extends State<NowPlayingWidget> {
           var dataMovie = snapshot.data?.results ?? [];
           if (snapshot.hasData) {
             return SizedBox(
-              height: 200,
+              height: MediaQuery.of(context).size.height / 8,
+              width: MediaQuery.of(context).size.width / 1,
               child: ListView.builder(
                   shrinkWrap: true,
                   itemCount: dataMovie.length,
@@ -35,25 +36,15 @@ class _NowPlayingWidgetState extends State<NowPlayingWidget> {
                   itemBuilder: (context, index) {
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        children: [
-                          Expanded(
-                            flex: 3,
-                            child: Container(
-                              width: MediaQuery.of(context).size.height / 4,
-                              height: MediaQuery.of(context).size.height / 4,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                  image: DecorationImage(
-                                      fit: BoxFit.cover,
-                                      image: NetworkImage(Const.imageMovie +
-                                          dataMovie[index].backdropPath!))),
-                            ),
-                          ),
-                          Expanded(
-                            child: Text(dataMovie[index].title ?? ''),
-                          )
-                        ],
+                      child: Container(
+                        width: 70,
+                        height: 70,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50.0),
+                            image: DecorationImage(
+                                fit: BoxFit.cover,
+                                image: NetworkImage(Const.imageMovie +
+                                    dataMovie[index].posterPath!))),
                       ),
                     );
                   }),
