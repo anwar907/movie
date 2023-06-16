@@ -1,16 +1,14 @@
-# movie
+# Movies & Tv Shows
 
-A new Flutter project.
+## Tools Specification
 
-## Getting Started
+Flutter version `3.10.1`
+Dart version `3.0.1`
+Android SDK version `33.0.2`
+Xcode `14.3.1`
 
-This project is a starting point for a Flutter application.
+## Instalation
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Before started `flutter run` make sure you have generate credintial key IMDB and add Bearer token to `lib/utils/const.dart` and paste on variable `token` value e.g: `Bearer xxxx`
+- to make sure the token is filled in correctly make sure to run  `flutter test test/widget_test.dart` and you will get result data from API
+- if step 1 and 2 have been done correctly you can hit `flutter run` in your terminal or your IDE

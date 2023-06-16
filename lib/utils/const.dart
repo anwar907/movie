@@ -6,5 +6,6 @@ class Const {
   static const String topRated = 'top_rated?language=en-US&page=1';
   static const String upcoming = 'upcoming?language=en-US&page=1';
 
+  /// put your Bearer token here
   static const String token = '';
 }

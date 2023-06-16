@@ -8,6 +8,7 @@ import 'package:movie/models/upcoming_models.dart';
 import 'package:movie/utils/const.dart';
 
 class MovieProvider {
+  /// Fetch data from Now Playing Movie
   Future<NowPlayingModels> nowPlayingMovie() async {
     try {
       final response = await http
@@ -26,6 +27,7 @@ class MovieProvider {
     }
   }
 
+  /// Fetch data from Popular Movie
   Future<PopularModels> popularMovie() async {
     try {
       final response = await http.get(Uri.parse(Const.baseUrl + Const.popular),
@@ -44,6 +46,7 @@ class MovieProvider {
     }
   }
 
+  /// Fetch data from Top Rating Movie
   Future<TopRatedModels> topRatedMovie() async {
     try {
       final response = await http.get(Uri.parse(Const.baseUrl + Const.topRated),
@@ -61,6 +64,7 @@ class MovieProvider {
     }
   }
 
+  /// Fetch data from Upcoming Movie
   Future<UpcomingModels> upcomingMovie() async {
     try {
       final response = await http.get(Uri.parse(Const.baseUrl + Const.upcoming),
